@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href=".\dist\styles.css">
+</head>
+<body>
+   <div class="wrapper relative flex flex-col items-center justify-evenly bg-[#14bdac] h-screen w-screen">
+  
+    <div class="absolute win text-7xl"></div>
+
+    <div class="playerName bg-slate-300 flex justify-center items-center h-[50px] w-[300px] bg-opacity-65 rounded-full">
+        <div class="currentPlayer text-2xl font-semibold"></div>
+    </div>
+
+    <div class="boxees grid grid-cols-3">
+        
+        <div class="box box-1 relative border-b-8 border-r-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-2 border-b-8 border-r-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-3 border-b-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-4 border-b-8 border-r-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-5 border-b-8 border-r-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-6 border-b-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-7 border-r-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-8 border-r-8 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+        <div class="box box-9 w-28 h-28 border-black border-opacity-50 flex items-center justify-center text-7xl text-gray-700"></div>
+    </div>
+    <button class="opacity-0 btn bg-slate-300 flex justify-center items-center h-[50px] w-[200px] bg-opacity-60 rounded-full text-3xl font-semibold">
+    </button>
+   </div>
+   <script src="script.js"></script>
+</body>
+</html>
+<!-- rgb(84, 84, 84) -->
