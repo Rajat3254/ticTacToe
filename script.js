@@ -7,6 +7,7 @@ const winnerName=document.querySelector('.win');
 const boxees=document.querySelector('.boxees');
 const playerName=document.querySelector('.playerName');
 let gameGrid=["","","","","","","","",""];
+let cnt=0;
 const winningPosition=[
     [0,1,2],
     [3,4,5],
@@ -20,20 +21,21 @@ const winningPosition=[
 boxes.forEach((box,index) => {
     box.addEventListener('click',()=>{
         if(!gameInfo.innerText){
-            gameInfo.classList.remove('opacity-0');
-            gameInfo.classList.add('opacity-100');
+            gameInfo.classList.remove('hidden');
+            gameInfo.classList.add('flex');
             gameInfo.innerText="Restart";
         }
        
         if(!box.innerText){  
             box.innerText=`${currentPlayer}`;
             gameGrid[index]=currentPlayer;
+            cnt++;
             if(currentPlayer=="O"){
                 box.style.color="white";
             }
-          //checkGameOver();
+          
             swapPlayer();
-            checkGameOver();
+           checkGameOver();
         }
     });
 });
@@ -48,6 +50,7 @@ function swapPlayer(){
     }
 }
 function intializeGame(){
+    cnt=0;
     currentPlayer="X";
     gameGrid=["","","","","","","","",""];
     player.innerText=`Current Player - ${currentPlayer}`;
@@ -56,8 +59,8 @@ function intializeGame(){
         box.style.color ="";
     });
     gameInfo.innerText="";
-    gameInfo.classList.remove('opacity-100');
-        gameInfo.classList.add('opacity-0');
+    gameInfo.classList.remove('flex');
+        gameInfo.classList.add('hidden');
 }
 intializeGame();
 
@@ -67,8 +70,7 @@ gameInfo.addEventListener('click',()=>{
     else{
         playerName.classList.remove('opacity-0');
         boxees.classList.remove('opacity-0');
-        winnerName.classList.remove('opacity-100');
-        winnerName.classList.add('opacity-0');
+        winnerName.classList.add('hidden');
         intializeGame();
     } 
 });
@@ -82,10 +84,17 @@ function checkGameOver(){
     if(winner!==""){
         playerName.classList.add('opacity-0');
         boxees.classList.add('opacity-0');
-        winnerName.classList.remove('opacity-0');
-        winnerName.classList.add('opacity-100');
+        winnerName.classList.remove('hidden');
+        //winnerName.classList.add('opacity-100');
         winnerName.innerText=`${winner} Winner!`;
         gameInfo.innerText="New Game";
+    }else if(cnt==9){
+        playerName.classList.add('opacity-0');
+        boxees.classList.add('opacity-0');
+        winnerName.classList.remove('hidden');
+        winnerName.innerText="XO DRAW!";
+        gameInfo.innerText="New Game";
+        cnt=0;
     }
   });
 }
